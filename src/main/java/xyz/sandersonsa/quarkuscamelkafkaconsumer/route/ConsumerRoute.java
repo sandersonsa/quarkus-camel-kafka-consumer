@@ -25,13 +25,13 @@ public class ConsumerRoute extends RouteBuilder {
                 )
                 // Keep the offsets in the previously configured repository
                 .routeId("FromKafka2Seda")
-                .log("Received : \"${body}\"")
-                .log("Message received from Kafka : ${body}")
-                .log(" on the topic ${headers[kafka.TOPIC]}")
-                .log(" on the partition ${headers[kafka.PARTITION]}")
-                .log(" with the offset ${headers[kafka.OFFSET]}")
-                .log(" with the key ${headers[kafka.KEY]}")
-                .log(" with source ${headers[source]}")
+                // .log("Received : \"${body}\"")
+                .log("#MESSAGE RECEIVED FROM KAFKA : ${body}")
+                .log("#on the topic ${headers[kafka.TOPIC]}")
+                .log("#on the partition ${headers[kafka.PARTITION]}")
+                .log("#with the offset ${headers[kafka.OFFSET]}")
+                .log("#with the key ${headers[kafka.KEY]}")
+                .log("#with source ${headers[source]}\n")
                 .to("seda:kafka-messages");
 
 
