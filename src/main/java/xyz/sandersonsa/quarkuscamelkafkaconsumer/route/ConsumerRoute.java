@@ -31,8 +31,7 @@ public class ConsumerRoute extends RouteBuilder {
                 .log(" on the partition ${headers[kafka.PARTITION]}")
                 .log(" with the offset ${headers[kafka.OFFSET]}")
                 .log(" with the key ${headers[kafka.KEY]}")
-
-
+                .log(" with source ${headers[source]}")
                 .to("seda:kafka-messages");
 
 
